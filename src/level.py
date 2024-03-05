@@ -1,5 +1,5 @@
 from characters import Pig
-from polygon import Polygon
+from elements import Polygon
 
 
 class Level():
