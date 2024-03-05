@@ -13,27 +13,23 @@ pygame.init()
 screen = pygame.display.set_mode((1200, 650))
 file_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\red-bird3.png"
 if os.path.exists(file_path):
-    print("File exists:", file_path)
     redbird = pygame.image.load(file_path).convert_alpha()
 else:
     print("File not found:", file_path)
 background2_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\background3.png"
 if os.path.exists(background2_path):
-    print("File exists:", background2_path)
     background2 = pygame.image.load(background2_path).convert_alpha()
 else:
     print("File not found:", background2_path)
     background2 = None
 sling_image_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\sling-3.png"
 if os.path.exists(sling_image_path):
-    print("File exists:", sling_image_path)
     sling_image = pygame.image.load(sling_image_path).convert_alpha()
 else:
     print("File not found:", sling_image_path)
     sling_image = None
 full_sprite_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\full-sprite.png"
 if os.path.exists(full_sprite_path):
-    print("File exists:", full_sprite_path)
     full_sprite = pygame.image.load(full_sprite_path).convert_alpha()
 else:
     print("File not found:", full_sprite_path)
@@ -44,7 +40,6 @@ pig_image = pygame.transform.scale(cropped, (30, 30))
 # Check if the buttons file exists
 buttons_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\selected-buttons.png"
 if os.path.exists(buttons_path):
-    print("File exists:", buttons_path)
     buttons = pygame.image.load(buttons_path).convert_alpha()
 else:
     print("File not found:", buttons_path)
@@ -52,7 +47,6 @@ else:
 # Check if the pig_happy file exists
 pig_happy_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\pig_failed.png"
 if os.path.exists(pig_happy_path):
-    print("File exists:", pig_happy_path)
     pig_happy = pygame.image.load(pig_happy_path).convert_alpha()
 else:
     print("File not found:", pig_happy_path)
@@ -60,7 +54,6 @@ else:
 # Check if the stars file exists
 stars_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\stars-edited.png"
 if os.path.exists(stars_path):
-    print("File exists:", stars_path)
     stars = pygame.image.load(stars_path).convert_alpha()
 else:
     print("File not found:", stars_path)
@@ -172,11 +165,6 @@ def distance(xo, yo, x, y):
 def load_music():
     """Load the music"""
     song1 = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\sounds\angry-birds.ogg"
-    if os.path.exists(song1):
-        print("File exists:", song1)
-    else:
-        print("File not found:", song1)
-        song1 = None
     pygame.mixer.music.load(song1)
     pygame.mixer.music.play(-1)
 
