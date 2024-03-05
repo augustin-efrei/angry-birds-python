@@ -2,6 +2,7 @@ import pymunk as pm
 from pymunk import Vec2d
 import pygame
 import math
+import os
 
 
 class Polygon():
@@ -16,8 +17,20 @@ class Polygon():
         space.add(body, shape)
         self.body = body
         self.shape = shape
-        wood = pygame.image.load("../resources/images/wood.png").convert_alpha()
-        wood2 = pygame.image.load("../resources/images/wood2.png").convert_alpha()
+        wood_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\wood.png"
+        if os.path.exists(wood_path):
+            print("File exists:", wood_path)
+            wood = pygame.image.load(wood_path).convert_alpha()
+        else:
+            print("File not found:", wood_path)
+            wood = None
+        wood2_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\wood2.png"
+        if os.path.exists(wood2_path):
+            print("File exists:", wood2_path)
+            wood2 = pygame.image.load(wood2_path).convert_alpha()
+        else:
+            print("File not found:", wood2_path)
+            wood2 = None
         rect = pygame.Rect(251, 357, 86, 22)
         self.beam_image = wood.subsurface(rect).copy()
         rect = pygame.Rect(16, 252, 22, 84)

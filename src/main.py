@@ -1,4 +1,5 @@
 import os
+import pygame
 import sys
 import math
 import time
@@ -8,26 +9,62 @@ import pymunk as pm
 from characters import Bird
 from level import Level
 
-
 pygame.init()
 screen = pygame.display.set_mode((1200, 650))
-redbird = pygame.image.load(
-    "../resources/images/red-bird3.png").convert_alpha()
-background2 = pygame.image.load(
-    "../resources/images/background3.png").convert_alpha()
-sling_image = pygame.image.load(
-    "../resources/images/sling-3.png").convert_alpha()
-full_sprite = pygame.image.load(
-    "../resources/images/full-sprite.png").convert_alpha()
+file_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\red-bird3.png"
+if os.path.exists(file_path):
+    print("File exists:", file_path)
+    redbird = pygame.image.load(file_path).convert_alpha()
+else:
+    print("File not found:", file_path)
+background2_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\background3.png"
+if os.path.exists(background2_path):
+    print("File exists:", background2_path)
+    background2 = pygame.image.load(background2_path).convert_alpha()
+else:
+    print("File not found:", background2_path)
+    background2 = None
+sling_image_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\sling-3.png"
+if os.path.exists(sling_image_path):
+    print("File exists:", sling_image_path)
+    sling_image = pygame.image.load(sling_image_path).convert_alpha()
+else:
+    print("File not found:", sling_image_path)
+    sling_image = None
+full_sprite_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\full-sprite.png"
+if os.path.exists(full_sprite_path):
+    print("File exists:", full_sprite_path)
+    full_sprite = pygame.image.load(full_sprite_path).convert_alpha()
+else:
+    print("File not found:", full_sprite_path)
+    full_sprite = None
 rect = pygame.Rect(181, 1050, 50, 50)
 cropped = full_sprite.subsurface(rect).copy()
 pig_image = pygame.transform.scale(cropped, (30, 30))
-buttons = pygame.image.load(
-    "../resources/images/selected-buttons.png").convert_alpha()
-pig_happy = pygame.image.load(
-    "../resources/images/pig_failed.png").convert_alpha()
-stars = pygame.image.load(
-    "../resources/images/stars-edited.png").convert_alpha()
+# Check if the buttons file exists
+buttons_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\selected-buttons.png"
+if os.path.exists(buttons_path):
+    print("File exists:", buttons_path)
+    buttons = pygame.image.load(buttons_path).convert_alpha()
+else:
+    print("File not found:", buttons_path)
+    buttons = None
+# Check if the pig_happy file exists
+pig_happy_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\pig_failed.png"
+if os.path.exists(pig_happy_path):
+    print("File exists:", pig_happy_path)
+    pig_happy = pygame.image.load(pig_happy_path).convert_alpha()
+else:
+    print("File not found:", pig_happy_path)
+    pig_happy = None
+# Check if the stars file exists
+stars_path = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\images\stars-edited.png"
+if os.path.exists(stars_path):
+    print("File exists:", stars_path)
+    stars = pygame.image.load(stars_path).convert_alpha()
+else:
+    print("File not found:", stars_path)
+    stars = None
 rect = pygame.Rect(0, 0, 200, 200)
 star1 = stars.subsurface(rect).copy()
 rect = pygame.Rect(204, 0, 200, 200)
@@ -134,7 +171,12 @@ def distance(xo, yo, x, y):
 
 def load_music():
     """Load the music"""
-    song1 = '../resources/sounds/angry-birds.ogg'
+    song1 = r"C:\Users\polet\Documents\EFREI\s2\projet_transverse\Angry-Birds\angry-birds-python\resources\sounds\angry-birds.ogg"
+    if os.path.exists(song1):
+        print("File exists:", song1)
+    else:
+        print("File not found:", song1)
+        song1 = None
     pygame.mixer.music.load(song1)
     pygame.mixer.music.play(-1)
 
